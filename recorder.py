@@ -32,14 +32,16 @@ def main():
     device = "plughw:%d,0" % device_number
 
     print(f"found device {device}...")
-    print(f"waiting for a new minute to start...")
 
-    block_for_new_minute()
+#    block_for_new_minute()
 
     now = datetime.datetime.now()
-    fn = now.strftime('%Y%m%d_%H%M00.wav')
-    full_path = "/recordings/" + fn
-    completed = subprocess.run(["arecord", "-D", device, "-d", "60", "-f", "S32_LE", "-r", "192000", "-c", "1", full_path])
+    fn = now.strftime('%Y%m%d_%H%M00')
+    full_path = "/recordings/" + fn + ".wav"
+    png_path = "/recordings/spectrograms/" + fn + ".png"
+    subprocess.run(["arecord", "-D", device, "-d", "60", "-f", "S32_LE", "-r", "192000", "-c", "1", full_path])
+    time.sleep(1)
+    subprocess.run(["sox", full_path, "-n", "spectrogram", "-o", png_path])
 
 if __name__ == '__main__':
     main()
