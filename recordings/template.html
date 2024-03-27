@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>$file</title>
+  <link rel="stylesheet" type="text/css" href="src/style.css" />
+  <style>
+    body { font-family: sans-serif; }
+  </style>
+</head>
+<body>
+<head>$file</head>
+  <script type="text/javascript" src="src/spectrogram-player.js"></script>
+  <div class="spectrogram-player" data-width="1000" data-height="400" data-freq-min="0" data-freq-max="96">
+    <img src="spectrograms/$file.png" />
+    <audio controls controlsList="nodownload">
+      <source src="$file.wav" type="audio/wav">
+    </audio>
+  </div>
+  Position: $lat °, $long °, $alt m<br>
+  Temperature: $T °C, Humidity: $RH %RH, Pressure: $P kPa<br>
+  <a href="$file.wav">Download $file.wav</a>
+</body>
+</html>

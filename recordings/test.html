@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Spectrogram Player Sample</title>
+  <link rel="stylesheet" type="text/css" href="src/style.css" />
+  <style>
+    body { font-family: sans-serif; }
+  </style>
+</head>
+<body>
+
+  <script type="text/javascript" src="src/spectrogram-player.js"></script>
+
+  <div class="spectrogram-player" data-width="1000" data-height="400" data-freq-min="0" data-freq-max="96">
+    <img src="spectrograms/20240321_171500.png" />
+    <audio controls controlsList="nodownload">
+      <source src="20240321_171500.wav" type="audio/wav">
+    </audio>
+  </div>
+</body>
+</html>
